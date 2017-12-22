@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <h3>Enter Json Input:</h3>
+  <textarea rows="20" cols="75" id="text" >
+</textarea>
+  <div>  <input type="button" value="submit" onclick="jsonValidator()"> </div>
+    <div id="output"></div>
+
+  <script type="text/javascript">
+
+function jsonValidator()
+{
+  var textBox = document.getElementById('text').value;
+  console.log(textBox);
+  var output = document.getElementById('output');
+  try {
+        JSON.parse(textBox);
+    } catch (e) {
+        output.innerHTML=e;
+    }
+  var jsonPretty = JSON.stringify(JSON.parse(textBox),null,2);  
+
+    output.innerHTML=jsonPretty;
+
+}
+jsonValidator();
+</script>
+</body>
+</html>
